@@ -1,0 +1,21 @@
+---
+title: "session4"
+format: pptx
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Correlations
+
+https://statsandr.com/blog/correlation-coefficient-and-correlation-test-in-r/
+
+## Regressions
+
+https://www.econometrics-with-r.org/1-introduction.html
+
+## Web scrapping in R
+
+https://statsandr.com/blog/web-scraping-in-r/

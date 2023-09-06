@@ -1,0 +1,29 @@
+---
+title: "Introduction to R: Session 3"
+format: pptx
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+Apply: https://www.youtube.com/watch?v=9uitTb_RWV0
+
+https://dplyr.tidyverse.org/reference/across.html
+
+Dplyr: https://rstudio.github.io/cheatsheets/html/tidyr.html?\_gl=1\*1nybc1x\*\_ga\*MTEwNTAzNTM2My4xNjkzODk5NTkz\*\_ga_2C0WZ1JHG0\*MTY5Mzg5OTU5Mi4xLjEuMTY5Mzg5OTk3Ni4wLjAuMA..
+
+https://rstudio.github.io/cheatsheets/html/data-transformation.html?\_gl=1\*1nybc1x\*\_ga\*MTEwNTAzNTM2My4xNjkzODk5NTkz\*\_ga_2C0WZ1JHG0\*MTY5Mzg5OTU5Mi4xLjEuMTY5Mzg5OTk3Ni4wLjAuMA..
+
+Loops: https://www.youtube.com/watch?v=tFXYQwVUXY8
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```

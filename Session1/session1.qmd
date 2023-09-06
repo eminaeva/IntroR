@@ -1,0 +1,305 @@
+---
+title: "Introduction to R: Session 1"
+author: "Eleonora Minaeva, eleonora.minaeva@eui.eu"
+format: pdf
+editor: visual
+---
+
+## What is R?
+
+R is a statistical computing and graphics system. This system is comprised of two parts: the R language itself and a run-time environment.
+
+**Open Source:** R is an open-source language, which means it's freely available for anyone to use, modify, and distribute.
+
+**Customization:** R simplifies data manipulation tasks and allows for extensive customization of plots and analyses, giving users the flexibility to tailor their work to specific research needs.
+
+**Integration:** R can be easily integrated with other programming languages like Python, SQL, and C++.
+
+**Reproducibility:** R encourages reproducible research through tools like RMarkdown, making it easy to create dynamic documents that combine code, results, and explanations.
+
+## R sources
+
+-   R and RStudio Installers: https://posit.co/download/rstudio-desktop/
+
+-   Online planform dedicated to programming and technology-related questions and answers: https://stackoverflow.com/
+
+-   Collaborative project development: https://github.com/
+
+    Some literature:
+
+-   Wickham, Hadley, and Garrett Grolemund. "R for Data Science." O'Reilly Media, 2017.
+
+-   Wickham, Hadley. "Advanced R." Chapman and Hall/CRC, 2019.
+
+-   Matloff, Norman. "The Art of R Programming." No Starch Press, 2011.
+
+## R and RStudio basics
+
+![R](images/r.jpg){fig-align="center" width="573"}
+
+## \-\-\-\-\-\-\-\-\--
+
+![What R Studio looks like](images/intr2.jpg){fig-align="center" width="649"}
+
+## \-\-\-\-\-\-\-\-\--
+
+![R Markdown](images/rmrq.jpg){fig-align="center" width="639"}
+
+## Syntax
+
+Common logical operators in R include **`==`** (equal), **`!=`** (not equal), **`<`** (less than), **`>`** (greater than), **`<=`** (less than or equal to), **`>=`** (greater than or equal to), **`&`** (and), **`|`** (or), and **`!`** (not).
+
+```{r}
+156+934
+```
+
+```{r}
+(5*9231)/10
+```
+
+```{r}
+6>(-85)
+```
+
+## Assignment operator
+
+```{r}
+x <- 125
+print(x)
+```
+
+In R, the **`<-`** operator is used for assignment. When you use it as shown in your statement, it assigns a value to an object (variable) if that object already exists. If the object doesn't exist, R will create it and assign the specified value to it. Sometimes, **'='** is used instead **'\<-'** but be careful not to confuse this sign with the equals sign **'=='**.
+
+Keyboard shortcuts for \<-
+
+-   Windows users: Alt + ' -- '
+-   macOS: Option + ' -- '
+
+## Understanding object classes
+
+### Simple functions
+
+```{r}
+result <- sqrt(x = 16)
+result
+```
+
+**`sqrt()`** - square root function. **`sqrt`** is the name of the function, and within **`()`**, you specify the arguments to which the function with this name will be applied.
+
+**`x`** - denotes the function's argument (in different functions, arguments can have different names).
+
+**`4`** - the value we pass as an argument to the function (to which the function will be applied).
+
+**`<-`** - assignment operator
+
+**`result`** - an object in which we store the result of the function's execution. The names of objects can be different (it's better to follow a style guide for naming).
+
+*Can you write a function of squaring of 7?*
+
+## \-\-\-\-\-\-\-\-\--
+
+### Variables
+
+-   numerical (discrete, continuous)
+
+-   categorical (nominal, ordinal)
+
+-   logical (or boolean)
+
+```{r}
+my_numeric <- 42.5
+
+my_character <- "some text"
+
+my_logical <- TRUE
+```
+
+Variable types can be changed
+
+```{r}
+my_numeric <- as.character(my_numeric)
+class(my_numeric)
+
+# see also: as.numeric, as.factor, as.logical, as.Date
+```
+
+## \-\-\-\-\-\-\-\-\--
+
+### Vectors
+
+-   ordered sequence of values of the same data type. It can contain numeric values, characters, logical values (TRUE/FALSE), or other data types, as long as all elements in the vector are of the same type:
+
+```{r}
+numeric_vector <- c(1, 10, 49)
+character_vector <- c("a", "b", "c")
+
+# changing vector
+names(numeric_vector) <- c("Marcelo", "Angela", "Widodo")
+numeric_vector
+```
+
+```{r}
+# summation of numeric vectors
+# create two numeric vectors and add them together
+
+```
+
+## \-\-\-\-\-\-\-\-\--
+
+### Matrix
+
+-   a set of elements of the same data type (numeric, character/categorical, or boolean) arranged in a fixed number of rows and columns:
+
+```{r}
+m <- matrix(1:9, byrow = TRUE, nrow = 3)
+m
+# The byrow argument specifies that the matrix is filled with values row by row. If we want the values in the matrix to be filled by columns, we simply place byrow = FALSE
+
+# Rows and columns can be named: rownames(my_matrix) <- row_names_vector; colnames(my_matrix) <- col_names_vector
+
+rownames(m) <- c("Marcelo", "Angela", "Widodo")
+m
+colnames(m) <- c("var1", "var2", "var3")
+m
+
+# Summation
+rowSums(m)
+colSums(m)
+```
+
+```{r}
+# Create any text matrix
+
+```
+
+## \-\-\-\-\-\-\-\-\--
+
+### Data frames
+
+-   two-dimensional data structure that can combine any types of variables at the same time:
+
+```{r}
+protest_data <- data.frame(
+  Date = as.Date(c("2023-08-10", "2023-08-15", "2023-08-20")),
+  City = c("Berlin", "Strasbourg", "Bologna"),
+  Event = c("Protest for Equality", "Environmental Rally", "Labor Strike"),
+  Temperature_Celsius = c(26, 30, 39)
+)
+
+head(protest_data) # first six rows
+str(protest_data) # summary statistics
+summary(protest_data) # summary statistics
+dim(protest_data) # number of rows and columns
+protest_data[, 'Event'] # accessing a variable
+```
+
+```{r}
+# Can you write a missing value in one of the variables? mydata$variable[raw's numner] <- NA
+```
+
+## Installing packages
+
+Installing Packages (usually done once): **`install.packages("package")`**
+
+Loading Packages into the R Workspace (needs to be done each time the program is started): **`library(package)`**
+
+```{r}
+install.packages("ggplot2") 
+library(ggplot2)
+
+# alternatively, you can use 'pacman' package for intalling and uploading several packages at the same time
+
+## pacman::p_load(
+ # tidyverse, 
+ # stargazer,
+ # lme4,
+ # ggeffects)
+
+
+# installed.packages() # check which packages you have installed (in console)
+
+# update.packages() # updating packages
+
+# remove.packages() 
+```
+
+## Reproducile workflow
+
+it is an approach in data science where every step of a project is documented and organized in such a way that others (or your **future yourself**) can reproduce the results exactly.
+
+![](images/photo_2020-05-11_19-28-09-01.jpg){fig-align="center" width="492"}
+
+## \-\-\-\-\-\-\-\-\--
+
+### Setting up working directory
+
+-   check current location of your directory
+
+```{r}
+getwd()
+```
+
+-   you can change the working directory using the **setwd()** command (set working directory):
+
+```{r, eval=FALSE}
+#setwd()
+```
+
+### R Project
+
+If you are working on a single project, such as a prospectus, you can create a separate folder and a dedicated project directory that contains your R scripts, data, and other project-related files. In this case, you do not need to set a new directory, by default it will refer to the folder where you created the project.
+
+Use 'File' --\> 'New Project'
+
+![](images/projects_new.png){fig-align="center" width="474"}
+
+More details: <https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects>
+
+## Loading data
+
+### Relative and Absolute Paths
+
+## Some typical errors
+
+![](images/photo_2020-03-23_20-36-03.jpg){fig-align="center" width="388"}
+
+## Some typical errors
+
+#### **Unmatched parentheses, curly braces, square brackets or quotes**
+
+```{r, eval=FALSE}
+#mean(c(1, 7, 13)
+```
+
+```{r, eval=FALSE}
+#sex_vector <- c("Male","Female","Female",Male")
+#factor_sex_vector == as.factor(sex_vector)
+```
+
+```{r, eval=FALSE}
+#install.packages(MASS)
+```
+
+#### **Wrong, inappropriate or inconsistent data types**
+
+```{r, eval=FALSE}
+#gender <- factor(c("female", "female", "male", "female", "male"))
+#mean(gender)
+```
+
+```{r, eval=FALSE}
+#y <- c(2.4, 3.7, 5.1, "9.8")
+#class(y)
+```
+
+#### **Missing, incorrect or misspelled arguments in functions**
+
+```{r, eval=FALSE}
+#rnorm(n = 3, var = 1) # use ?help for getting information about this function
+```
+
+```{r, eval=FALSE}
+#mean(c(1, 7, 13, NA), narm = TRUE)
+```
+
+## Next time
